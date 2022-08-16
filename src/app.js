@@ -1,6 +1,8 @@
 import express from 'express';
+import { config } from 'dotenv';
 import morgan from 'morgan';
 const bp = require('body-parser');
+import { config } from 'dotenv';
 
 //routes
 import routes from './routes/index';
@@ -19,7 +21,11 @@ app.all('*', function (_, res, next) {
   next();
 });
 
-app.set('port', 3000);
+config();
+
+const port = process.env.PORT || 3000;
+
+app.set('port', port);
 
 //middleware
 app.use(morgan('dev'));
