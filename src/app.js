@@ -1,5 +1,4 @@
 import express from 'express';
-import { config } from 'dotenv';
 import morgan from 'morgan';
 const bp = require('body-parser');
 
@@ -19,8 +18,6 @@ app.all('*', function (_, res, next) {
   res.header('Access-Control-Allow-Methods', 'GET,PUT,POST,DELETE,OPTIONS');
   next();
 });
-
-config();
 
 app.set('port', 3000);
 
