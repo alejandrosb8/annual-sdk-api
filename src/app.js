@@ -1,8 +1,6 @@
 import express from 'express';
-import { config } from 'dotenv';
 import morgan from 'morgan';
 const bp = require('body-parser');
-import { config } from 'dotenv';
 
 //routes
 import routes from './routes/index';
