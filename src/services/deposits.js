@@ -25,7 +25,7 @@ const addDeposit = async (req, res) => {
   }
 };
 
-/*const deleteDeposit = async (req, res) => {
+const deleteDeposit = async (req, res) => {
   try {
     const { id, token } = req.body;
     const client = await soap.createClientAsync(url);
@@ -35,6 +35,6 @@ const addDeposit = async (req, res) => {
     res.status(500);
     res.send(err.message);
   }
-};*/
+};
 
-export { getDeposits, addDeposit };
+export { getDeposits, addDeposit, deleteDeposit };
