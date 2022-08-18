@@ -27,9 +27,9 @@ const addDeposit = async (req, res) => {
 
 const deleteDeposit = async (req, res) => {
   try {
-    const { id, token } = req.body;
+    const { codigoDeposito, token } = req.body;
     const client = await soap.createClientAsync(url);
-    const data = await client.Adm_BorrarDepositoAsync({ id, token });
+    const data = await client.Adm_BorrarDepositoAsync({ codigoDeposito, token });
     res.json(JSON.parse(data[0].Adm_BorrarDepositoResult));
   } catch (err) {
     res.status(500);
