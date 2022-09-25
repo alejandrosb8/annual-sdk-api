@@ -37,4 +37,16 @@ const deleteDeposit = async (req, res) => {
   }
 };
 
-export { getDeposits, addDeposit, deleteDeposit };
+const updateDeposit = async (req, res) => {
+  try {
+    const { deposito, token } = req.body;
+    const client = await soap.createClientAsync(url);
+    const data = await client.Adm_EditarDepositoAsync({ deposito, token });
+    res.json(JSON.parse(data[0].Adm_EditarDepositoResult));
+  } catch (error) {
+    res.status(500);
+    console.log(error);
+  }
+};
+
+export { getDeposits, addDeposit, deleteDeposit, updateDeposit };
